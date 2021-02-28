@@ -328,6 +328,7 @@ const Navigation = ({
                     {searchActors(actorSearchValue).map((item) => (
                       <SearchMenuItem
                         key={uuidv4()}
+                        name={item.ActorName}
                         onClick={() => {
                           if (
                             !searchActorFilter.some(
@@ -339,9 +340,7 @@ const Navigation = ({
                             );
                           }
                         }}
-                      >
-                        {item.ActorName}
-                      </SearchMenuItem>
+                      />
                     ))}
                   </Paper>
                 </Popper>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import dayjs from "dayjs";
+import LazyLoad, { forceCheck } from "react-lazyload";
 import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -25,6 +26,9 @@ const styles = (theme) => ({
     ":hover > &": {
       color: theme.palette.secondary.main,
     },
+  },
+  imageCell: {
+    padding: `0px ${theme.spacing(2)}px`,
   },
   actorName: {
     fontSize: "inherit",
@@ -131,6 +135,7 @@ const List = ({
           ) : (
             <TableHead>
               <TableRow>
+                <TableCell></TableCell>
                 <TableCell
                   sortDirection={orderBy === "ActorName" ? order : false}
                 >
@@ -249,6 +254,20 @@ const List = ({
                       history.push(`${ROUTES.ACTOR}/${row.ActorID}`)
                     }
                   >
+                    <TableCell className={classes.imageCell}>
+                      {
+                        <LazyLoad
+                          height={40}
+                          offset={100}
+                          once
+                          style={{ display: "flex", alignItems: "center" }}
+                        >
+                          <img
+                            src={`http://localhost:8080/images/faces/${row.ActorName}.jpg`}
+                          />
+                        </LazyLoad>
+                      }
+                    </TableCell>
                     <TableCell
                       className={classes.cell}
                       component="th"
