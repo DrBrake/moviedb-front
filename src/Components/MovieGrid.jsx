@@ -237,7 +237,7 @@ const MovieGrid = ({
                     }
                   }}
                 >
-                  {showCover?.MovieCode === movie.MovieCode &&
+                  {showCover?.MovieName === movie.MovieName &&
                   activeTab === "Spines" ? (
                     <div className={classes.blankCover} />
                   ) : (
@@ -247,9 +247,9 @@ const MovieGrid = ({
                         [classes.spines]: activeTab === "Spines",
                         [classes.lean]: shouldLean(index),
                         [classes.rotate]:
-                          movieCoverToRotate === movie.MovieCode,
+                          movieCoverToRotate === movie.MovieName,
                       })}
-                      src={getImageSrc(movie.MovieCode)}
+                      src={getImageSrc(movie.MovieName)}
                     />
                   )}
                   {activeTab === "Covers" && (
@@ -261,7 +261,7 @@ const MovieGrid = ({
                           "DD.MM.YYYY"
                         )}`}
                       onDelete={() => {
-                        setMovieCoverToRotate(movie.MovieCode);
+                        setMovieCoverToRotate(movie.MovieName);
                         setRotateCover(rotateCover === 180 ? 0 : 180);
                         handleRotationTransition();
                       }}
@@ -284,7 +284,7 @@ const MovieGrid = ({
                     history.push(`${ROUTES.MOVIE}/${movie.MovieID}`)
                   }
                   className={classes.image}
-                  src={getImageSrc(movie.MovieCode)}
+                  src={getImageSrc(movie.MovieName)}
                 />
                 <InfoChip
                   label={`${movie.MovieName}

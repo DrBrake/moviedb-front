@@ -28,8 +28,6 @@ const AppRouter = ({
   toggleYearFilter,
   toggleDateAddedFilter,
   toggleStudioFilter,
-  actorFilter,
-  setActorFilter,
   searchActorFilter,
   setSearchActorFilter,
   clearFilters,
@@ -189,8 +187,6 @@ const AppRouter = ({
                   order={order}
                   orderBy={orderBy}
                   customOrderBy={customOrderBy}
-                  actorFilter={actorFilter}
-                  setActorFilter={setActorFilter}
                   {...props}
                 />
               )}

@@ -26,7 +26,6 @@ const App = () => {
   const [yearFilter, setYearFilter] = useState(null);
   const [dateAddedFilter, setDateAddedFilter] = useState(null);
   const [studioFilter, setStudioFilter] = useState([]);
-  const [actorFilter, setActorFilter] = useState("");
   const [searchActorFilter, setSearchActorFilter] = useState([]);
   const [order, setOrder] = useState("asc");
   const [orderBy, setOrderBy] = useState("MovieName");
@@ -162,10 +161,9 @@ const App = () => {
     if (
       skipFilters ||
       (genreFilter.length === 0 &&
-        yearFilter &&
-        dateAddedFilter &&
-        actorFilter &&
-        searchActorFilter.length !== 0)
+        !yearFilter &&
+        !dateAddedFilter &&
+        searchActorFilter.length === 0)
     ) {
       return {
         movies,
@@ -368,8 +366,6 @@ const App = () => {
       toggleYearFilter={toggleYearFilter}
       toggleDateAddedFilter={toggleDateAddedFilter}
       toggleStudioFilter={toggleStudioFilter}
-      actorFilter={actorFilter}
-      setActorFilter={setActorFilter}
       searchActorFilter={searchActorFilter}
       setSearchActorFilter={setSearchActorFilter}
       clearFilters={clearFilters}

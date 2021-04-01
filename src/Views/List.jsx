@@ -72,18 +72,6 @@ const List = ({
                 </TableCell>
                 <TableCell
                   align="right"
-                  sortDirection={orderBy === "MovieCode" ? order : false}
-                >
-                  <TableSortLabel
-                    active={orderBy === "MovieCode"}
-                    direction={orderBy === "MovieCode" ? order : "asc"}
-                    onClick={(e) => handleRequestSort(e, "MovieCode")}
-                  >
-                    Code
-                  </TableSortLabel>
-                </TableCell>
-                <TableCell
-                  align="right"
                   sortDirection={orderBy === "MovieStudio" ? order : false}
                 >
                   <TableSortLabel
@@ -224,9 +212,6 @@ const List = ({
                           .toString()
                           .replace(/,/g, ", ")}
                       </Typography>
-                    </TableCell>
-                    <TableCell className={classes.cell} align="right">
-                      {row.MovieCode}
                     </TableCell>
                     <TableCell className={classes.cell} align="right">
                       {row.MovieStudio}

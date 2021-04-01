@@ -152,14 +152,16 @@ const Navigation = ({
   };
 
   const getRandomEntry = () => {
-    const min = Math.ceil(0);
-    const max = location.pathname.includes(ROUTES.ACTOR)
-      ? Math.floor(filteredData.actors.length)
-      : Math.floor(filteredData.movies.length);
-    const rndIndex = Math.floor(Math.random() * (max - min)) + min;
-    return location.pathname.includes(ROUTES.ACTOR)
-      ? `${ROUTES.ACTOR}/${filteredData.actors[rndIndex].ActorID}`
-      : `${ROUTES.MOVIE}/${filteredData.movies[rndIndex].MovieID}`;
+    if (filteredData.length > 0) {
+      const min = Math.ceil(0);
+      const max = location.pathname.includes(ROUTES.ACTOR)
+        ? Math.floor(filteredData.actors.length)
+        : Math.floor(filteredData.movies.length);
+      const rndIndex = Math.floor(Math.random() * (max - min)) + min;
+      return location.pathname.includes(ROUTES.ACTOR)
+        ? `${ROUTES.ACTOR}/${filteredData.actors[rndIndex].ActorID}`
+        : `${ROUTES.MOVIE}/${filteredData.movies[rndIndex].MovieID}`;
+    }
   };
 
   const sortGenres = (filteredData) => {

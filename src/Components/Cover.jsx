@@ -57,13 +57,13 @@ class Cover extends Component {
     this.geometry = new THREE.BoxBufferGeometry(400, 568, 41);
 
     this.spineTexture = new THREE.TextureLoader().load(
-      `http://localhost:8080/images/movie/${movie?.MovieCode}.jpg?spine=true`
+      `http://localhost:8080/images/movie/${movie?.MovieName}.jpg?spine=true`
     );
     this.frontTexture = new THREE.TextureLoader().load(
-      `http://localhost:8080/images/movie/${movie?.MovieCode}.jpg?front=true`
+      `http://localhost:8080/images/movie/${movie?.MovieName}.jpg?front=true`
     );
     this.backTexture = new THREE.TextureLoader().load(
-      `http://localhost:8080/images/movie/${movie?.MovieCode}.jpg?back=true`
+      `http://localhost:8080/images/movie/${movie?.MovieName}.jpg?back=true`
     );
 
     this.materials = [

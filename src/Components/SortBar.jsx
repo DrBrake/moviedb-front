@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -19,19 +19,7 @@ const styles = (theme) => ({
   },
 });
 
-const SortBar = ({
-  handleRequestSort,
-  order,
-  orderBy,
-  movieView,
-  setActorFilter,
-  classes,
-}) => {
-  useEffect(() => {
-    return () => {
-      if (setActorFilter) setActorFilter("");
-    };
-  }, []);
+const SortBar = ({ handleRequestSort, order, orderBy, movieView, classes }) => {
   return (
     <Paper elevation={1}>
       <MuiGrid
@@ -53,25 +41,6 @@ const SortBar = ({
                 Name
               </Typography>
               {orderBy === "MovieName" ? (
-                order === "asc" ? (
-                  <ArrowUp />
-                ) : (
-                  <ArrowDown />
-                )
-              ) : null}
-            </MuiGrid>
-            <MuiGrid
-              item
-              className={classes.sortElement}
-              onClick={(e) => handleRequestSort(e, "MovieCode")}
-            >
-              <Typography
-                className={classes.sortText}
-                color={orderBy === "MovieCode" ? "primary" : "initial"}
-              >
-                Code
-              </Typography>
-              {orderBy === "MovieCode" ? (
                 order === "asc" ? (
                   <ArrowUp />
                 ) : (

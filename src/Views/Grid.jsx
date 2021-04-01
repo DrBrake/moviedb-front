@@ -40,8 +40,6 @@ const Grid = ({
   order,
   orderBy,
   customOrderBy,
-  actorFilter,
-  setActorFilter,
 }) => {
   const classes = useStyles();
 
@@ -69,8 +67,6 @@ const Grid = ({
             orderBy={orderBy}
             customOrderBy={customOrderBy}
             movieView={false}
-            actorFilter={actorFilter}
-            setActorFilter={setActorFilter}
           />
           <div
             className={classNames(classes.actorGrid, classes.overflowHidden)}

@@ -136,18 +136,11 @@ const Movie = ({
     );
   };
 
-  const getCover = (selectedMovie, values) => {
+  const getCover = (selectedMovie) => {
     if (selectedMovie) {
       return (
         <img
-          src={`http://localhost:8080/images/movie/${selectedMovie.MovieCode}.jpg`}
-          className={classes.image}
-        />
-      );
-    } else if (values.MovieCode.length !== 0) {
-      return (
-        <img
-          src={`http://localhost:8080/images/movie/${values.MovieCode}.jpg`}
+          src={`http://localhost:8080/images/movie/${selectedMovie.MovieName}.jpg`}
           className={classes.image}
         />
       );
@@ -155,18 +148,11 @@ const Movie = ({
     return null;
   };
 
-  const getThumbnail = (selectedMovie, values) => {
+  const getThumbnail = (selectedMovie) => {
     if (selectedMovie) {
       return (
         <img
-          src={`http://localhost:8080/images/thumbnails/${selectedMovie.MovieCode}.jpg`}
-          className={classes.thumbnail}
-        />
-      );
-    } else if (values.MovieCode.length !== 0) {
-      return (
-        <img
-          src={`http://localhost:8080/images/thumbnails/${values.MovieCode}.jpg`}
+          src={`http://localhost:8080/images/thumbnails/${selectedMovie.MovieName}.jpg`}
           className={classes.thumbnail}
         />
       );
@@ -181,7 +167,6 @@ const Movie = ({
           ? {
               MovieID: selectedMovie.MovieID,
               MovieName: selectedMovie.MovieName,
-              MovieCode: selectedMovie.MovieCode,
               MovieStudio: selectedMovie.MovieStudio,
               MovieYear: selectedMovie.MovieYear,
               MovieGenres: selectedMovie.MovieGenres.map(
@@ -209,7 +194,6 @@ const Movie = ({
           : {
               MovieID: getMovieIDForNewMovie(),
               MovieName: "",
-              MovieCode: "",
               MovieStudio: "",
               MovieYear: "",
               MovieGenres: "",
@@ -226,7 +210,7 @@ const Movie = ({
         <Form className={classes.container}>
           <Grid container spacing={2}>
             <Grid item xs={6}>
-              {getCover(selectedMovie, values)}
+              {getCover(selectedMovie)}
             </Grid>
             <Grid item xs={6}>
               <Field
@@ -237,15 +221,6 @@ const Movie = ({
                 className={classes.input}
                 component={TextField}
                 value={values.MovieName}
-                onChange={handleChange}
-              />
-              <Field
-                label="Code"
-                inputProps={{ name: "MovieCode" }}
-                fullWidth
-                className={classes.input}
-                component={TextField}
-                value={values.MovieCode}
                 onChange={handleChange}
               />
               <Field
@@ -410,7 +385,7 @@ const Movie = ({
             </Grid>
           </Grid>
           <React.Fragment>
-            {getThumbnail(selectedMovie, values)}
+            {getThumbnail(selectedMovie)}
             {selectedMovie && (
               <Grid container>
                 {selectedMovie.MovieActors.map((movieActor) =>
