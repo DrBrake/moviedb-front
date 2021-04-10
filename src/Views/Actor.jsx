@@ -9,7 +9,7 @@ import uniq from "lodash/uniq";
 import flatten from "lodash/flatten";
 import { withStyles } from "@material-ui/core/styles";
 
-import MovieGrid from "../Components/MovieGrid";
+import MovieGrid from "../Components/MovieGrid/MovieGrid";
 
 const styles = (theme) => ({
   inputContainer: {

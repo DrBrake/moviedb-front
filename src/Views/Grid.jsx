@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import { makeStyles } from "@material-ui/core/styles";
 
 import InfoChip from "../Components/InfoChip";
-import SortBar from "../Components/SortBar";
-import MovieGrid from "../Components/MovieGrid";
+import SortBar from "../Components/SortBar/SortBar";
+import MovieGrid from "../Components/MovieGrid/MovieGrid";
 
 import { ROUTES } from "../constants";
 
