@@ -95,6 +95,8 @@ const MovieGrid = ({
           activeTab={activeTab}
           coverRect={coverRect}
           setCoverRect={setCoverRect}
+          showCover={showCover}
+          setShowCover={setShowCover}
         />
       ) : (
         <div className={classNames(classes.gridContainer, classes.thumbGrid)}>

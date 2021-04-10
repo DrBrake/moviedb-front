@@ -76,8 +76,9 @@ const MovieGridCovers = ({
   activeTab,
   coverRect,
   setCoverRect,
+  showCover,
+  setShowCover,
 }) => {
-  const [showCover, setShowCover] = useState(null);
   const [rotationInTransition, setRotationInTransition] = useState(false);
   const [movieCoverToRotate, setMovieCoverToRotate] = useState(null);
   const [rotateCover, setRotateCover] = useState(0);
