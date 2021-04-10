@@ -135,9 +135,6 @@ const MovieList = ({
               <TableCell className={classes.cell} align="right">
                 {row.MoviePlays}
               </TableCell>
-              <TableCell className={classes.cell} align="right">
-                {row.SortValue && row.SortValue}
-              </TableCell>
             </TableRow>
           ))}
       </TableBody>
